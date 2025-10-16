@@ -1,4 +1,8 @@
 function sntu_init() {
+	// Check if current tab is localhost - if so, don't redirect
+	if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+		return;
+	}
 	function sntu_filesystem_check(url, warning_el) {
 		chrome.extension.isAllowedFileSchemeAccess(function(isAllowedAccess) {
 			if (isAllowedAccess) {
